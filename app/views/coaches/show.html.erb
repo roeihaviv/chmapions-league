@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Coach #<%= @the_coach.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/coaches">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_coach/<%= @the_coach.id %>">
+          Delete coach
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Coach name
+      </dt>
+      <dd>
+        <%= @the_coach.coach_name %>
+      </dd>
+
+      <dt>
+        Club
+      </dt>
+      <dd>
+        <%= @the_coach.club_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_coach.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_coach.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit coach
+    </h2>
+
+    <form action="/modify_coach/<%= @the_coach.id %>"  method="post" >
+      <div>
+        <label for="coach_name_box">
+          Coach name
+        </label>
+
+        <input type="text" id="coach_name_box" name="query_coach_name" value="<%= @the_coach.coach_name %>">
+      </div>
+
+      <div>
+        <label for="club_id_box">
+          Club
+        </label>
+
+        <input type="text" id="club_id_box" name="query_club_id" value="<%= @the_coach.club_id %>">
+      </div>
+
+      <button>
+        Update coach
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

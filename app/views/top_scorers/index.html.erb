@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all top scorers
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new top scorer
+    </h2>
+
+    <form action="/insert_top_scorer" method="post">
+      <div>
+        <label for="player_name_box">
+          Player name
+        </label>
+
+        <input type="text" id="player_name_box" name="query_player_name">
+      </div>
+
+      <div>
+        <label for="number_of_goals_box">
+          Number of goals
+        </label>
+
+        <input type="text" id="number_of_goals_box" name="query_number_of_goals">
+      </div>
+
+      <div>
+        <label for="season_id_box">
+          Season
+        </label>
+
+        <input type="text" id="season_id_box" name="query_season_id">
+      </div>
+
+      <div>
+        <label for="player_image_box">
+          Player image
+        </label>
+
+        <input type="text" id="player_image_box" name="query_player_image">
+      </div>
+
+      <div>
+        <label for="club_id_box">
+          Club
+        </label>
+
+        <input type="text" id="club_id_box" name="query_club_id">
+      </div>
+
+      <button>
+        Create top scorer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Player name
+        </th>
+
+        <th>
+          Number of goals
+        </th>
+
+        <th>
+          Season
+        </th>
+
+        <th>
+          Player image
+        </th>
+
+        <th>
+          Club
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_top_scorers.each do |a_top_scorer| %>
+      <tr>
+        <td>
+          <%= a_top_scorer.id %>
+        </td>
+
+        <td>
+          <%= a_top_scorer.player_name %>
+        </td>
+
+        <td>
+          <%= a_top_scorer.number_of_goals %>
+        </td>
+
+        <td>
+          <%= a_top_scorer.season_id %>
+        </td>
+
+        <td>
+          <%= a_top_scorer.player_image %>
+        </td>
+
+        <td>
+          <%= a_top_scorer.club_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_top_scorer.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_top_scorer.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/top_scorers/<%= a_top_scorer.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

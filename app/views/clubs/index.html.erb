@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all clubs
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new club
+    </h2>
+
+    <form action="/insert_club" method="post">
+      <div>
+        <label for="club_name_box">
+          Club name
+        </label>
+
+        <input type="text" id="club_name_box" name="query_club_name">
+      </div>
+
+      <div>
+        <label for="founding_year_box">
+          Founding year
+        </label>
+
+        <input type="text" id="founding_year_box" name="query_founding_year">
+      </div>
+
+      <div>
+        <label for="logo_box">
+          Logo
+        </label>
+
+        <input type="text" id="logo_box" name="query_logo">
+      </div>
+
+      <div>
+        <label for="stadium_id_box">
+          Stadium
+        </label>
+
+        <input type="text" id="stadium_id_box" name="query_stadium_id">
+      </div>
+
+      <button>
+        Create club
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Club name
+        </th>
+
+        <th>
+          Founding year
+        </th>
+
+        <th>
+          Logo
+        </th>
+
+        <th>
+          Stadium
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_clubs.each do |a_club| %>
+      <tr>
+        <td>
+          <%= a_club.id %>
+        </td>
+
+        <td>
+          <%= a_club.club_name %>
+        </td>
+
+        <td>
+          <%= a_club.founding_year %>
+        </td>
+
+        <td>
+          <%= a_club.logo %>
+        </td>
+
+        <td>
+          <%= a_club.stadium_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_club.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_club.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/clubs/<%= a_club.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

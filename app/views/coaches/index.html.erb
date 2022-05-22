@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all coaches
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new coach
+    </h2>
+
+    <form action="/insert_coach" method="post">
+      <div>
+        <label for="coach_name_box">
+          Coach name
+        </label>
+
+        <input type="text" id="coach_name_box" name="query_coach_name">
+      </div>
+
+      <div>
+        <label for="club_id_box">
+          Club
+        </label>
+
+        <input type="text" id="club_id_box" name="query_club_id">
+      </div>
+
+      <button>
+        Create coach
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Coach name
+        </th>
+
+        <th>
+          Club
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_coaches.each do |a_coach| %>
+      <tr>
+        <td>
+          <%= a_coach.id %>
+        </td>
+
+        <td>
+          <%= a_coach.coach_name %>
+        </td>
+
+        <td>
+          <%= a_coach.club_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_coach.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_coach.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/coaches/<%= a_coach.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all final stadia
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new final stadium
+    </h2>
+
+    <form action="/insert_final_stadium" method="post">
+      <div>
+        <label for="stadium_name_box">
+          Stadium name
+        </label>
+
+        <input type="text" id="stadium_name_box" name="query_stadium_name">
+      </div>
+
+      <div>
+        <label for="city_box">
+          City
+        </label>
+
+        <input type="text" id="city_box" name="query_city">
+      </div>
+
+      <div>
+        <label for="stadium_image_box">
+          Stadium image
+        </label>
+
+        <input type="text" id="stadium_image_box" name="query_stadium_image">
+      </div>
+
+      <div>
+        <label for="number_of_seats_box">
+          Number of seats
+        </label>
+
+        <input type="text" id="number_of_seats_box" name="query_number_of_seats">
+      </div>
+
+      <button>
+        Create final stadium
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Stadium name
+        </th>
+
+        <th>
+          City
+        </th>
+
+        <th>
+          Stadium image
+        </th>
+
+        <th>
+          Number of seats
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_final_stadia.each do |a_final_stadium| %>
+      <tr>
+        <td>
+          <%= a_final_stadium.id %>
+        </td>
+
+        <td>
+          <%= a_final_stadium.stadium_name %>
+        </td>
+
+        <td>
+          <%= a_final_stadium.city %>
+        </td>
+
+        <td>
+          <%= a_final_stadium.stadium_image %>
+        </td>
+
+        <td>
+          <%= a_final_stadium.number_of_seats %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_final_stadium.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_final_stadium.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/final_stadia/<%= a_final_stadium.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

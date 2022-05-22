@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all seasons
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new season
+    </h2>
+
+    <form action="/insert_season" method="post">
+      <div>
+        <label for="season_year_box">
+          Season year
+        </label>
+
+        <input type="text" id="season_year_box" name="query_season_year">
+      </div>
+
+      <div>
+        <label for="stadium_id_box">
+          Stadium
+        </label>
+
+        <input type="text" id="stadium_id_box" name="query_stadium_id">
+      </div>
+
+      <button>
+        Create season
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Season year
+        </th>
+
+        <th>
+          Stadium
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_seasons.each do |a_season| %>
+      <tr>
+        <td>
+          <%= a_season.id %>
+        </td>
+
+        <td>
+          <%= a_season.season_year %>
+        </td>
+
+        <td>
+          <%= a_season.stadium_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_season.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_season.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/seasons/<%= a_season.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

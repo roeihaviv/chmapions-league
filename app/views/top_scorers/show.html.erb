@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Top scorer #<%= @the_top_scorer.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/top_scorers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_top_scorer/<%= @the_top_scorer.id %>">
+          Delete top scorer
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Player name
+      </dt>
+      <dd>
+        <%= @the_top_scorer.player_name %>
+      </dd>
+
+      <dt>
+        Number of goals
+      </dt>
+      <dd>
+        <%= @the_top_scorer.number_of_goals %>
+      </dd>
+
+      <dt>
+        Season
+      </dt>
+      <dd>
+        <%= @the_top_scorer.season_id %>
+      </dd>
+
+      <dt>
+        Player image
+      </dt>
+      <dd>
+        <%= @the_top_scorer.player_image %>
+      </dd>
+
+      <dt>
+        Club
+      </dt>
+      <dd>
+        <%= @the_top_scorer.club_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_top_scorer.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_top_scorer.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit top scorer
+    </h2>
+
+    <form action="/modify_top_scorer/<%= @the_top_scorer.id %>"  method="post" >
+      <div>
+        <label for="player_name_box">
+          Player name
+        </label>
+
+        <input type="text" id="player_name_box" name="query_player_name" value="<%= @the_top_scorer.player_name %>">
+      </div>
+
+      <div>
+        <label for="number_of_goals_box">
+          Number of goals
+        </label>
+
+        <input type="text" id="number_of_goals_box" name="query_number_of_goals" value="<%= @the_top_scorer.number_of_goals %>">
+      </div>
+
+      <div>
+        <label for="season_id_box">
+          Season
+        </label>
+
+        <input type="text" id="season_id_box" name="query_season_id" value="<%= @the_top_scorer.season_id %>">
+      </div>
+
+      <div>
+        <label for="player_image_box">
+          Player image
+        </label>
+
+        <input type="text" id="player_image_box" name="query_player_image" value="<%= @the_top_scorer.player_image %>">
+      </div>
+
+      <div>
+        <label for="club_id_box">
+          Club
+        </label>
+
+        <input type="text" id="club_id_box" name="query_club_id" value="<%= @the_top_scorer.club_id %>">
+      </div>
+
+      <button>
+        Update top scorer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

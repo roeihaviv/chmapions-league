@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Final stadium #<%= @the_final_stadium.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/final_stadia">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_final_stadium/<%= @the_final_stadium.id %>">
+          Delete final stadium
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Stadium name
+      </dt>
+      <dd>
+        <%= @the_final_stadium.stadium_name %>
+      </dd>
+
+      <dt>
+        City
+      </dt>
+      <dd>
+        <%= @the_final_stadium.city %>
+      </dd>
+
+      <dt>
+        Stadium image
+      </dt>
+      <dd>
+        <%= @the_final_stadium.stadium_image %>
+      </dd>
+
+      <dt>
+        Number of seats
+      </dt>
+      <dd>
+        <%= @the_final_stadium.number_of_seats %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_final_stadium.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_final_stadium.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit final stadium
+    </h2>
+
+    <form action="/modify_final_stadium/<%= @the_final_stadium.id %>"  method="post" >
+      <div>
+        <label for="stadium_name_box">
+          Stadium name
+        </label>
+
+        <input type="text" id="stadium_name_box" name="query_stadium_name" value="<%= @the_final_stadium.stadium_name %>">
+      </div>
+
+      <div>
+        <label for="city_box">
+          City
+        </label>
+
+        <input type="text" id="city_box" name="query_city" value="<%= @the_final_stadium.city %>">
+      </div>
+
+      <div>
+        <label for="stadium_image_box">
+          Stadium image
+        </label>
+
+        <input type="text" id="stadium_image_box" name="query_stadium_image" value="<%= @the_final_stadium.stadium_image %>">
+      </div>
+
+      <div>
+        <label for="number_of_seats_box">
+          Number of seats
+        </label>
+
+        <input type="text" id="number_of_seats_box" name="query_number_of_seats" value="<%= @the_final_stadium.number_of_seats %>">
+      </div>
+
+      <button>
+        Update final stadium
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

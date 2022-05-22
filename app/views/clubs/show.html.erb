@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Club #<%= @the_club.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/clubs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_club/<%= @the_club.id %>">
+          Delete club
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Club name
+      </dt>
+      <dd>
+        <%= @the_club.club_name %>
+      </dd>
+
+      <dt>
+        Founding year
+      </dt>
+      <dd>
+        <%= @the_club.founding_year %>
+      </dd>
+
+      <dt>
+        Logo
+      </dt>
+      <dd>
+        <%= @the_club.logo %>
+      </dd>
+
+      <dt>
+        Stadium
+      </dt>
+      <dd>
+        <%= @the_club.stadium_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_club.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_club.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit club
+    </h2>
+
+    <form action="/modify_club/<%= @the_club.id %>"  method="post" >
+      <div>
+        <label for="club_name_box">
+          Club name
+        </label>
+
+        <input type="text" id="club_name_box" name="query_club_name" value="<%= @the_club.club_name %>">
+      </div>
+
+      <div>
+        <label for="founding_year_box">
+          Founding year
+        </label>
+
+        <input type="text" id="founding_year_box" name="query_founding_year" value="<%= @the_club.founding_year %>">
+      </div>
+
+      <div>
+        <label for="logo_box">
+          Logo
+        </label>
+
+        <input type="text" id="logo_box" name="query_logo" value="<%= @the_club.logo %>">
+      </div>
+
+      <div>
+        <label for="stadium_id_box">
+          Stadium
+        </label>
+
+        <input type="text" id="stadium_id_box" name="query_stadium_id" value="<%= @the_club.stadium_id %>">
+      </div>
+
+      <button>
+        Update club
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
