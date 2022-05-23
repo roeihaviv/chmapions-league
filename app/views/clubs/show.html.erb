@@ -37,7 +37,7 @@
         Logo
       </dt>
       <dd>
-        <%= @the_club.logo %>
+        <img src="<%= @the_club.logo %>">
       </dd>
 
       <dt>
@@ -45,20 +45,6 @@
       </dt>
       <dd>
         <%= @the_club.stadium_id %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_club.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_club.updated_at) %> ago
       </dd>
     </dl>
   </div>

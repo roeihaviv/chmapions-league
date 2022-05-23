@@ -65,6 +65,8 @@ Rails.application.routes.draw do
   post("/insert_season", { :controller => "seasons", :action => "create" })
           
   # READ
+  get("/", { :controller => "seasons", :action => "index" })
+  
   get("/seasons", { :controller => "seasons", :action => "index" })
   
   get("/seasons/:path_id", { :controller => "seasons", :action => "show" })
@@ -84,8 +86,6 @@ Rails.application.routes.draw do
   post("/insert_club", { :controller => "clubs", :action => "create" })
           
   # READ
-  get("/", { :controller => "clubs", :action => "index" })
-  
   get("/clubs", { :controller => "clubs", :action => "index" })
   
   get("/clubs/:path_id", { :controller => "clubs", :action => "show" })

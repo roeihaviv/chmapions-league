@@ -5,8 +5,10 @@ class CreateClubs < ActiveRecord::Migration[6.0]
       t.string :founding_year
       t.string :logo
       t.integer :stadium_id
+      add_column :country, :string
 
       t.timestamps
     end
+
   end
 end
